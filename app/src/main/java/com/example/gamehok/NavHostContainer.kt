@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
@@ -90,24 +91,31 @@ fun BottomBar(navController: NavHostController) {
     )
     val navStackBackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navStackBackEntry?.destination
-    Row(
-        modifier = Modifier.background(Color("#08090A".toColorInt()))
-            .padding(start=10.dp,end=10.dp,bottom=30.dp)
-            .clip(RoundedCornerShape(20.dp))
-            .background(Color("#08090A".toColorInt()))
-            .fillMaxWidth().border(BorderStroke(1.dp, Color("#08090A".toColorInt())),
-                RoundedCornerShape(20)),
-        horizontalArrangement = Arrangement.SpaceEvenly,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        screens.forEach { screen ->
-            AddItem(
-                screen = screen,
-                currentDestination = currentDestination,
-                navController = navController
+    Column {
+        Box(){
+            HorizontalDivider(
+                color = Color("#7F7F7F".toColorInt()).copy(alpha = 2f),
+                thickness = 2.dp
             )
+
+        }
+        Row(
+            modifier = Modifier.background(Color("#08090A".toColorInt()))
+                .padding(start=10.dp,end=10.dp,top=10.dp ,bottom=15.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            screens.forEach { screen ->
+                AddItem(
+                    screen = screen,
+                    currentDestination = currentDestination,
+                    navController = navController
+                )
+            }
         }
     }
+
 }
 
 
@@ -122,7 +130,7 @@ fun AddItem(
 
     Box(
         modifier = Modifier
-            .padding(top = 8.dp, bottom = 12.dp)
+            .padding(top = 8.dp)
             .clickable(
                 indication = null,
                 interactionSource = remember { MutableInteractionSource() }
@@ -150,7 +158,7 @@ fun AddItem(
                 Icon(
                     painter = painterResource(id = if (selected) screen.icon_focused else screen.icon),
                     contentDescription = "",
-                    tint = Color("#ffffff".toColorInt()),
+                    tint = if(selected) Color("#01A74B".toColorInt()) else Color("#909090".toColorInt()),
                     modifier = Modifier
                         .width(30.dp)
                         .height(30.dp),

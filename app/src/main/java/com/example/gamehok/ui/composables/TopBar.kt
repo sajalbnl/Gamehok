@@ -34,8 +34,8 @@ fun TopBar(navController: NavController){
     val context = LocalContext.current
     Row(
         modifier = Modifier
-            .fillMaxWidth().padding(top=35.dp)
-            .background(Color("#08090A".toColorInt()))
+            .fillMaxWidth()
+            .background(Color("#08090A".toColorInt())).padding(top=5.dp)
             .padding(horizontal = 20.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
