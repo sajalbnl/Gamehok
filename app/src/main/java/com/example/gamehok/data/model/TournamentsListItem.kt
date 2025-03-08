@@ -1,5 +1,8 @@
 package com.example.gamehok.data.model
 
+import java.io.Serializable
+
+
 data class TournamentsListItem(
     val entryFees: Int,
     val gameName: String,
@@ -14,4 +17,4 @@ data class TournamentsListItem(
     val thumbnailPath: String,
     val totalCount: Int,
     val tournamentStartTime: Int
-)
+) : Serializable
