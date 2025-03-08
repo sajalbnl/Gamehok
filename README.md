@@ -1,5 +1,8 @@
 # GameHok 🎮
 
+GameHok is a gaming platform that allows users to discover, play, and track upcoming or ongoing gaming tournaments. Built with Jetpack Compose and Kotlin, it provides real-time updates, tournament details, and seamless navigation for an enhanced gaming experience.
+
+
 ## Project Setup 🛠️
 1. Clone the Repository
    
@@ -24,7 +27,6 @@
 - Jetpack Compose – UI framework
 - MVVM – Architecture pattern
 - Retrofit – API handling
-- Room Database – Local storage
 - Dagger Hilt – Dependency Injection
 
 
