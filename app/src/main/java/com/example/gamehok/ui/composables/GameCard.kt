@@ -1,6 +1,8 @@
 package com.example.gamehok.ui.composables
 
+import android.content.Intent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -24,9 +26,13 @@ import coil3.request.ImageRequest
 import coil3.request.crossfade
 import com.example.gamehok.R
 import com.example.gamehok.data.model.GamesListItem
+import com.example.gamehok.ui.activities.GameDetailsActivity
+import com.example.gamehok.ui.activities.TournamentsDetailsActivity
+import java.io.Serializable
 
 @Composable
 fun GameCard(game: GamesListItem) {
+    val context = LocalContext.current
     val painter =
         rememberAsyncImagePainter(
             ImageRequest.Builder(
@@ -37,15 +43,20 @@ fun GameCard(game: GamesListItem) {
                     crossfade(true)
                 }).build()
         )
+    val img : Int =if (game.gameName.lowercase() == "bgmi") R.drawable.pubg
+    else if(game.gameName.lowercase() == "free_fire") R.drawable.counter_strike
+    else R.drawable.cod
     Column(
-        modifier = Modifier,
+        modifier = Modifier.clickable(){
+            val i = Intent(context, GameDetailsActivity::class.java)
+            i.putExtra("Image",img)
+            context.startActivity(i)
+        },
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Image(
-            painter = if (game.gameName.lowercase() == "bgmi") painterResource(R.drawable.pubg)
-            else if(game.gameName.lowercase() == "free_fire") painterResource(R.drawable.counter_strike)
-            else painterResource(R.drawable.cod),
+            painter = painterResource(img),
             contentDescription = "",
             contentScale = ContentScale.Crop,
             modifier = Modifier.padding(10.dp)

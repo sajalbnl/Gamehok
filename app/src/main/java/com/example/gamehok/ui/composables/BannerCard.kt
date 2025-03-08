@@ -88,7 +88,6 @@ fun BannerCard(){
                     }
                 }
 
-
                 val imageId = "inlineImage"
 
                 // Creating an AnnotatedString with an inline image

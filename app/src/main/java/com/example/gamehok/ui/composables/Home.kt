@@ -26,6 +26,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -145,6 +146,9 @@ fun Home(navController: NavController){
         gamesList.value.let {
             when(it){
                 is ApiState.Loading -> {
+                    Row(modifier = Modifier.fillMaxWidth().padding(vertical = 15.dp), horizontalArrangement = Arrangement.Center) {
+                        CircularProgressIndicator(color=Color("#0CF285".toColorInt()))
+                    }
                 }
                 is ApiState.Error -> {
                     Toast.makeText(context,"Error In Loading", Toast.LENGTH_SHORT).show()
@@ -191,6 +195,10 @@ fun Home(navController: NavController){
         tournamentList.value.let {
             when(it){
                 is ApiState.Loading -> {
+                    Row(modifier = Modifier.fillMaxWidth().padding(vertical = 30.dp), horizontalArrangement = Arrangement.Center) {
+                        CircularProgressIndicator(color=Color("#0CF285".toColorInt()))
+                    }
+
                 }
                 is ApiState.Error -> {
                     Toast.makeText(context,"Error In Loading", Toast.LENGTH_SHORT).show()

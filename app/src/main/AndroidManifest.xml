@@ -29,6 +29,10 @@
             android:name=".ui.activities.TournamentsDetailsActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activities.GameDetailsActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 

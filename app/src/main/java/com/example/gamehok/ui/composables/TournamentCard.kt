@@ -40,12 +40,14 @@ import java.io.Serializable
 @Composable
 fun TournamentCard(tournament: TournamentsListItem) {
     val context = LocalContext.current
+    val images = listOf(R.drawable.cod, R.drawable.bgmi, R.drawable.counter_strike,R.drawable.pubg)
+    val randomImage = remember { images.random() }
     Box(
         modifier = Modifier
             .width(280.dp).clickable(){
                 val i = Intent(context, TournamentsDetailsActivity::class.java)
                 i.putExtra("Tournament",tournament as Serializable)
-
+                i.putExtra("Image",randomImage)
                 context.startActivity(i)
             }
             .padding(end = 20.dp, top = 10.dp, bottom = 10.dp)
@@ -66,8 +68,7 @@ fun TournamentCard(tournament: TournamentsListItem) {
             colors = CardDefaults.cardColors(containerColor = Color.Transparent)
         ) {
 
-            val images = listOf(R.drawable.cod, R.drawable.bgmi, R.drawable.counter_strike,R.drawable.pubg)
-            val randomImage = remember { images.random() }
+
             Column {
                 Box {
                     Image(
