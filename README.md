@@ -5,9 +5,12 @@ GameHok is a gaming platform that allows users to discover, play, and track upco
 
 ## Project Setup 🛠️
 1. Clone the Repository
-   
-   ![image](https://github.com/user-attachments/assets/5cfaba9c-3007-43aa-ab32-3ab29c03f1a1)
 
+Git clone https://github.com/sajalbnl/Gamehok.git
+
+cd Gamehok
+
+   
 2. Open in Android Studio
 - Open Android Studio
 - Select "Open an existing project"
